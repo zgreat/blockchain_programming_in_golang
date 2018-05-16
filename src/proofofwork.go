@@ -78,7 +78,7 @@ FOR_LOOP:
 			data := pow.prepareData(nonce)
 			hash = sha256.Sum256(data)
 			fmt.Printf("\r")
-			logger.Logfn(LogDebug, "%x\n", hash)
+			logger.Logf(LogDebug, "%x\n", hash)
 			hashInt.SetBytes(hash[:])
 			if hashInt.Cmp(pow.target) == -1 {
 				break FOR_LOOP
