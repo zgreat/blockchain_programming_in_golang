@@ -61,7 +61,7 @@ func GetChecksum(pubKeyHash []byte) []byte {
 }
 
 func NewKeyPair() (ecdsa.PrivateKey, []byte) {
-	privateKey, err := ecdsa.GenerateKey(elliptic.P256(), rand.Reader)
+	privateKey, err := ecdsa.GenerateKey(elliptic.P384(), rand.Reader)
 	if err != nil {
 		log.Panic(err)
 	}
