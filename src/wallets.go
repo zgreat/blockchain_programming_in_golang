@@ -59,7 +59,7 @@ func (ws *Wallets) LoadFromFile(nodeID string) error {
 	}
 
 	var wallets Wallets
-	gob.Register(elliptic.P256())
+	gob.Register(elliptic.P384())
 
 	buf.Write(fileContent)
 	decoder := gob.NewDecoder(&buf)
@@ -77,7 +77,7 @@ func (ws Wallets) SaveToFile(nodeID string) {
 	walletFile := fmt.Sprintf(walletFile, nodeID)
 	var content bytes.Buffer
 
-	gob.Register(elliptic.P256())
+	gob.Register(elliptic.P384())
 
 	encoder := gob.NewEncoder(&content)
 	err := encoder.Encode(ws)
