@@ -32,6 +32,10 @@ func (ws *Wallets) CreateWallet() string {
 }
 
 func (ws Wallets) GetWallet(address string) Wallet {
+	wallet := ws.Wallets[address]
+ 	if wallet == nil {
+ 		log.Panic("ERROR: No wallet found!")
+ 	}
 	return *ws.Wallets[address]
 }
 
