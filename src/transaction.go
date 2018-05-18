@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-const subsidy = 10
+const subsidy = 100
 
 type Transaction struct {
 	ID   []byte
@@ -168,7 +168,7 @@ func (tx *Transaction) Verify(prevTxs map[string]Transaction) bool {
 	}
 
 	trimmedTx := tx.TrimmedTx()
-	curve := elliptic.P256()
+	curve := elliptic.P384()
 
 	for txid, inTx := range tx.Vin {
 		prevTx := prevTxs[hex.EncodeToString(inTx.Txid)]
